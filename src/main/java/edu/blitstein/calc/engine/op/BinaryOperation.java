@@ -2,12 +2,12 @@ package edu.blitstein.calc.engine.op;
 
 public enum BinaryOperation {
     PLUS("+") {
-          double apply(double x, double y) {
+          public double apply(double x, double y) {
             return x + y;
           }
         },
     TIMES("*") {
-          double apply(double x, double y) {
+          public double apply(double x, double y) {
             return x * y;
           }
         };
@@ -23,5 +23,5 @@ public enum BinaryOperation {
       return symbol;
     }
 
-    abstract double apply(double x, double y) throws ArithmeticException;
+    public abstract double apply(double x, double y) throws ArithmeticException;
 }
