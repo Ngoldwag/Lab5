@@ -4,7 +4,7 @@ package edu.blitstein.calc.engine.op;
 import edu.blitstein.calc.exception.UnknownOpException;
 
 public class UnaryOperationFactory {
-    public static UnaryOperation getOperator(String opStr, double n1)
+    public static UnaryOperation getOperator(String opStr)
             throws UnknownOpException {
         UnaryOperation op;
         switch (opStr) {
