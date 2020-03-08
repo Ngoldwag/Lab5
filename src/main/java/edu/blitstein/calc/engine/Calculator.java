@@ -45,12 +45,4 @@ public class Calculator {
 
 
 }
-    public double evaluate(String opStr, double n1)
-            throws DivideByZeroException, UnknownStrOpException {
-        double answer;
-        UnaryOperation op = UnaryOperationFactory.getOperator(opStr);
-        answer = op.apply(n1);
-        return answer;
-
-
-    }}
+    }
