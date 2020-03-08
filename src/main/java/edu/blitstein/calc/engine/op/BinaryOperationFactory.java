@@ -1,10 +1,10 @@
 package edu.blitstein.calc.engine.op;
 
-import edu.blitstein.calc.exception.UnknownCharOpException;
+import edu.blitstein.calc.exception.UnknownOpException;
 
 public class BinaryOperationFactory {
      public static BinaryOperation getOperator(char opChar)
-             throws UnknownCharOpException {
+             throws UnknownOpException {
          BinaryOperation op;
          switch (opChar) {
              case '+':
@@ -23,7 +23,7 @@ public class BinaryOperationFactory {
                  op = BinaryOperation.OFF;
                  break;
              default:
-                 throw new UnknownCharOpException(opChar);
+                 throw new UnknownOpException(opChar);
          }
          return op;
      }

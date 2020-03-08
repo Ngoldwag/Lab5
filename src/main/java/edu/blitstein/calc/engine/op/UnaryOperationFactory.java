@@ -1,10 +1,11 @@
 package edu.blitstein.calc.engine.op;
 
-import edu.blitstein.calc.exception.UnknownStrOpException;
+
+import edu.blitstein.calc.exception.UnknownOpException;
 
 public class UnaryOperationFactory {
-    public static UnaryOperation getOperator(String opStr)
-            throws UnknownStrOpException {
+    public static UnaryOperation getOperator(String opStr, double n1)
+            throws UnknownOpException {
         UnaryOperation op;
         switch (opStr) {
             case "abs":
@@ -14,11 +15,10 @@ public class UnaryOperationFactory {
                 op = UnaryOperation.INVERT;
                 break;
             default:
-                throw new UnknownStrOpException(opStr);
+                throw new UnknownOpException(opStr);
         }
         return op;
     }
-
 
 }
 

@@ -3,7 +3,7 @@ package edu.blitstein.calc.engine;
 import edu.blitstein.calc.engine.op.UnaryOperation;
 import edu.blitstein.calc.engine.op.UnaryOperationFactory;
 import edu.blitstein.calc.exception.DivideByZeroException;
-import edu.blitstein.calc.exception.UnknownStrOpException;
+import edu.blitstein.calc.exception.UnknownOpException;
 
 public class UnaryCalculator {
     private double result;
@@ -34,7 +34,7 @@ public class UnaryCalculator {
      * Any other value of op throws UnknownOpException.
      */
     public double evaluate(String opStr, double n1)
-            throws DivideByZeroException, UnknownStrOpException {
+            throws DivideByZeroException, UnknownOpException {
         double answer;
         UnaryOperation op = UnaryOperationFactory.getOperator(opStr);
         answer = op.apply(n1);
