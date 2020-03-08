@@ -5,6 +5,8 @@ import edu.blitstein.calc.engine.op.BinaryOperationFactory;
 import edu.blitstein.calc.engine.op.UnaryOperation;
 import edu.blitstein.calc.engine.op.UnaryOperationFactory;
 import edu.blitstein.calc.exception.DivideByZeroException;
+import edu.blitstein.calc.exception.UnknownCharOpException;
+import edu.blitstein.calc.exception.UnknownStrOpException;
 
 public class Calculator {
     private double result;
@@ -35,7 +37,7 @@ public class Calculator {
      * Any other value of op throws UnknownOpException.
      */
     public double evaluate(char opChar, double n1, double n2)
-            throws DivideByZeroException, UnknownOpException {
+            throws DivideByZeroException, UnknownCharOpException {
         double answer;
         BinaryOperation op = BinaryOperationFactory.getOperator(opChar);
         answer = op.apply(n1, n2);
@@ -44,7 +46,7 @@ public class Calculator {
 
 }
     public double evaluate(String opStr, double n1)
-            throws DivideByZeroException, UnknownOpException {
+            throws DivideByZeroException, UnknownStrOpException {
         double answer;
         UnaryOperation op = UnaryOperationFactory.getOperator(opStr);
         answer = op.apply(n1);
