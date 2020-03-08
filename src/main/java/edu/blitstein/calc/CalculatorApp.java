@@ -2,7 +2,8 @@ package edu.blitstein.calc;
 
 import edu.blitstein.calc.engine.Calculator;
 import edu.blitstein.calc.exception.DivideByZeroException;
-import edu.blitstein.calc.exception.UnknownOpException;
+import edu.blitstein.calc.exception.UnknownCharOpException;
+import edu.blitstein.calc.exception.UnknownStrOpException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class CalculatorApp {
 
     //Numbers this close to zero are treated as if equal to zero.
     public static void main(String[] args)
-            throws DivideByZeroException, UnknownOpException {
+            throws DivideByZeroException, UnknownStrOpException, UnknownCharOpException {
         System.out.println("Calculator is on.");
         System.out.print("Format of each line: ");
         System.out.println("operator space number");
@@ -25,6 +26,7 @@ public class CalculatorApp {
         boolean done = false;
         while (!done) {
             char nextOp = (keyboard.next()).charAt(0);
+            //String nextOp = (keyboard.nextString());
             if ((nextOp == 'e') || (nextOp == 'E'))
                 done = true;
             else {
@@ -36,14 +38,16 @@ public class CalculatorApp {
                     } catch (DivideByZeroException e) {
                         //e.printStackTrace(); **used for finding where the error is
                         System.out.println(e.getMessage());
-                    } catch (UnknownOpException e) {
+                    } catch (UnknownStrOpException e) {
                         //e.printStackTrace();
                         System.out.println(e.getMessage());
                     } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     } catch (InputMismatchException e) {
                         System.out.println(e.getMessage());
-                    }
+                    }catch (UnknownCharOpException e) {
+                    //e.printStackTrace();
+                    System.out.println(e.getMessage());
 
             }
         }

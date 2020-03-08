@@ -1,5 +1,7 @@
 package edu.blitstein.calc.engine.op;
 
+import edu.blitstein.calc.exception.DivideByZeroException;
+
 public enum BinaryOperation {
     PLUS("+") {
           public double apply(double x, double y) {
@@ -10,7 +12,27 @@ public enum BinaryOperation {
           public double apply(double x, double y) {
             return x * y;
           }
-        };
+        },
+    MINUS("-"){
+        public double apply(double x, double y) {
+            return x - y;
+        }
+    },
+    DIVIDE("/") {
+        public double apply(double x, double y) {
+            double precision = 0.001;
+            if(y<precision && y> -precision){
+                throw new DivideByZeroException();
+            }
+            return x / y;
+        }
+    },
+    OFF("@"){
+        public double apply(double x, double y){
+            System.exit(0);
+            return 0.0;
+        }
+    };
 
     private final String symbol;
 
